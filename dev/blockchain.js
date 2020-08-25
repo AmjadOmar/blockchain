@@ -52,15 +52,14 @@ class Blockchain {
   }
 
   proofOfWOrk(previousBlockHash, currentBlockData) {
-    console.time("pow");
+    // console.time("pow");
     let nonce = 0;
     let hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
     while (hash.substring(0, 4) !== "0000") {
       nonce++;
       hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
     }
-    console.log(hash);
-    console.timeEnd("pow");
+    // console.timeEnd("pow");
     return nonce;
   }
 }
