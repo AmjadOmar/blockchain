@@ -33,7 +33,7 @@ class Blockchain {
       sender: sender,
       recipient: recipient,
     };
-    //return newTransaction;
+
     this.pendingTransactions.push(newTransaction);
     return this.getLastBlock()["index"] + 1;
   }
