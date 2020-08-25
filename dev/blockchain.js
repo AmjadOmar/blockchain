@@ -4,6 +4,7 @@ class Blockchain {
   constructor() {
     this.chain = [];
     this.pendingTransactions = [];
+    this.createNewBlock(100, "0", "0");
   }
 
   createNewBlock(nonce, previousBlockHash, hash) {
@@ -51,12 +52,15 @@ class Blockchain {
   }
 
   proofOfWOrk(previousBlockHash, currentBlockData) {
+    console.time("pow");
     let nonce = 0;
     let hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
     while (hash.substring(0, 4) !== "0000") {
       nonce++;
       hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
     }
+    console.log(hash);
+    console.timeEnd("pow");
     return nonce;
   }
 }

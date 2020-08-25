@@ -52,6 +52,8 @@ const currentBlockData = [
   },
 ];
 
-var btc = bitcoin.proofOfWOrk(previousBlockHash, currentBlockData);
+//var btc = bitcoin.proofOfWOrk(previousBlockHash, currentBlockData);
 
-console.log(btc);
+console.log(bitcoin);
+
+// console.log(bitcoin.hashBlock(previousBlockHash, currentBlockData, 86892));
