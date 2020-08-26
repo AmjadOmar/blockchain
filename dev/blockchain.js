@@ -1,10 +1,10 @@
-const sha256 = require("sha256");
+const sha256 = require('sha256');
 
 class Blockchain {
   constructor() {
     this.chain = [];
     this.pendingTransactions = [];
-    this.createNewBlock(100, "0", "0");
+    this.createNewBlock(100, '0', '0');
   }
 
   createNewBlock(nonce, previousBlockHash, hash) {
@@ -35,12 +35,12 @@ class Blockchain {
     };
 
     this.pendingTransactions.push(newTransaction);
-    return this.getLastBlock()["index"] + 1;
+    return this.getLastBlock()['index'] + 1;
   }
 
   addTransactionToPendingTransactions(newTransaction) {
     this.pendingTransactions.push(newTransaction);
-    return this.getLastBlock()["index"] + 1;
+    return this.getLastBlock()['index'] + 1;
   }
 
   hashBlock(previousBlockHash, currentBlockData, nonce) {
@@ -55,7 +55,7 @@ class Blockchain {
     // console.time("pow");
     let nonce = 0;
     let hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
-    while (hash.substring(0, 4) !== "0000") {
+    while (hash.substring(0, 4) !== '0000') {
       nonce++;
       hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
     }
