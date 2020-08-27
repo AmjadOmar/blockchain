@@ -3,6 +3,8 @@ const bodyParser = require('body-parser');
 const Blockchain = require('./blockchain');
 const { v4: uuidv4 } = require('uuid');
 
+const port = process.argv[2];
+
 const bitcoin = new Blockchain();
 const nodeAddress = uuidv4().split('-').join('');
 
@@ -63,6 +65,6 @@ app.get('/mine', function (req, res) {
   });
 });
 
-app.listen(3000, function () {
-  console.log('listening on port 3000...');
+app.listen(port, function () {
+  console.log(`listening on port ${port}...`);
 });
